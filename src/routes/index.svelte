@@ -1,10 +1,22 @@
-<script>
-	export let projects;
-	export let array;
+<script context="module">
+	export async function load({ params, fetch, session, stuff }) {
+		let categories = await fetch('/api/categories');
+		 categories = await categories.json();
+
+		let projects = await fetch('/api/projects');
+		projects = await projects.json();
+		return {
+			props: { projects, categories }
+		};
+	}
 </script>
 
-<h1>home</h1>
-<div>{projects}</div>
-{#each array as item}
-	<div>{item.title}</div>
-{/each}
+<script>
+	import Filter from '../components/Filter.svelte';
+	import ProjectsGrid from '../components/ProjectsGrid.svelte';
+
+	export let categories;
+</script>
+
+<Filter {categories} />
+<ProjectsGrid />

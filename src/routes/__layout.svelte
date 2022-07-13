@@ -13,24 +13,34 @@
 </script>
 
 <script>
+	import Header from '../components/Header.svelte';
+
 	export let preferences;
 </script>
 
 {#if preferences}
-	<div class="main-img__wrapper">
-		<img class="main-img" src={preferences.mainImage} alt="" />
-	</div>
+	<section class="main-img__wrapper">
+		<img class="main-img" src={preferences.mainImage} alt="A women with flowers" />
+	</section>
 {/if}
-<div>{JSON.stringify(preferences)}</div>
-<slot />
+
+<Header />
+<main class="main">
+	<slot />
+</main>
 
 <style>
 	.main-img__wrapper {
-    display: flex;
-    justify-content: center;
-  }
+		display: flex;
+		justify-content: center;
+	}
 
 	.main-img {
 		height: 300px;
+	}
+
+	.main {
+		display: flex;
+		flex-direction: column;
 	}
 </style>
