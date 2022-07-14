@@ -28,13 +28,22 @@
 		&:hover {
 			color: black;
 		}
+
+		@media (max-width: 768px) {
+			font-size: 28px;
+		}
 	}
 
 	.social-links {
 		display: flex;
 		flex-flow: row nowrap;
-		align-items: center;
+		align-items: center;		
 		gap: 12px;
+
+		@media (max-width: 768px) {
+			padding-right: 10px;
+			gap: 15px;
+		}
 	}
 
 	.active {
@@ -56,9 +65,16 @@
 		margin-right: 5%;
 		margin-bottom: 50px;
 
+		@media (max-width: 768px) {
+			height: 80px;
+			margin-top: 10px;
+			margin-left: 0;
+			margin-right: 0;
+			margin-bottom: 30px;
+		}
+
 		nav {
 			height: 100%;
-			height: 60px;
 			display: flex;
 			align-items: center;
 			justify-content: start;
@@ -69,6 +85,7 @@
 				text-decoration: none;
 				color: gray;
 				transition: color 0.2s ease-in-out;
+				padding: 20px 10px;
 
 				&:hover {
 					color: black;
