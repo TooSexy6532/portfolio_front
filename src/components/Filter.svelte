@@ -2,6 +2,6 @@
 	export let categories = [];
 </script>
 
-<div>
+<div class="container">
 	{JSON.stringify(categories)}
 </div>

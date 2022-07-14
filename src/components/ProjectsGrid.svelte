@@ -2,7 +2,7 @@
 	import ProjectsCard from './ProjectsCard.svelte';
 </script>
 
-<div>
+<div class="container">
 	ProjectsGrid
 	<ProjectsCard />
 </div>

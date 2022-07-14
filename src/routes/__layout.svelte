@@ -1,4 +1,5 @@
 <script context="module">
+	import '../style.css';
 	export async function load({ params, fetch, session, stuff }) {
 		const url = `/api/preferences`;
 		const response = await fetch(url);
