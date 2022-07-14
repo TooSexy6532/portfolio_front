@@ -11,16 +11,30 @@
 		</nav>
 
 		<div class="social-links">
-			<Icon icon="mdi-light:home" />
+			<Icon class="social-icon" icon="simple-line-icons:social-facebook" />
+
+			<Icon class="social-icon" icon="simple-line-icons:social-instagram" />
+
+			<Icon class="social-icon" icon="simple-line-icons:social-vkontakte" />
 		</div>
 	</div>
 </header>
 
 <style lang="scss">
+	div :global(.social-icon) {
+		font-size: 24px;
+		color: gray;
+		cursor: pointer;
+		&:hover {
+			color: black;
+		}
+	}
+
 	.social-links {
 		display: flex;
 		flex-flow: row nowrap;
-		gap: 5px;
+		align-items: center;
+		gap: 12px;
 	}
 
 	.active {

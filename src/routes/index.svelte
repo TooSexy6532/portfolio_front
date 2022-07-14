@@ -1,12 +1,10 @@
 <script context="module">
-	export async function load({ params, fetch, session, stuff }) {
-		let categories = await fetch('/api/categories');
-		categories = await categories.json();
+	import categoriesApi from '../api/index.js';
 
-		let projects = await fetch('/api/projects');
-		projects = await projects.json();
+	export async function load({ params, fetch, session, stuff }) {
+		const categories = await categoriesApi.getCategories({ fetch });
 		return {
-			props: { projects, categories }
+			props: { categories }
 		};
 	}
 </script>

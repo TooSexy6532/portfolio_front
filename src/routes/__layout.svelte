@@ -1,6 +1,6 @@
 <script context="module">
-	import '../reset.scss';
-	import '../style.scss';
+	import '../styles/reset.scss';
+	import '../styles/style.scss';
 
 	export async function load({ params, fetch, session, stuff }) {
 		const url = `/api/preferences`;
@@ -19,6 +19,13 @@
 	import Header from '../components/Header.svelte';
 
 	export let preferences;
+
+	import { navigating } from '$app/stores';
+
+	import Loading from '../components/Loader.svelte';
+	import { loading } from '../stores/loader.js';
+
+	$: loading.setNavigate(!!$navigating);
 </script>
 
 {#if preferences}
@@ -32,10 +39,17 @@
 	<slot />
 </main>
 
-<style>
+<Loading />
+
+<style lang="scss">
 	.main-img__wrapper {
+		margin-top: 20px;
 		display: flex;
 		justify-content: center;
+
+		@media (max-width: 560px) {
+			display: none;
+		}
 	}
 
 	.main-img {
