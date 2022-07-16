@@ -1,10 +1,11 @@
 <script context="module">
-	import categoriesApi from '../api/index.js';
+	import { getCategories,getProjects } from '../api/index.js';
 
-	export async function load({ params, fetch, session, stuff }) {
-		const categories = await categoriesApi.getCategories({ fetch });
+	export async function load({ fetch }) {
+		const categories = await getCategories({ fetch });
+		const projects = await getProjects({ fetch });
 		return {
-			props: { categories }
+			props: { categories, projects }
 		};
 	}
 </script>
@@ -14,7 +15,25 @@
 	import ProjectsGrid from '../components/ProjectsGrid.svelte';
 
 	export let categories;
+	export let projects;
+
+	let filter = '';
+
+	const updateFilter = (event) => {
+		filter = event.detail.filter;
+	};
+	let filteredProjects;
+	$: {
+		if (filter === '') {
+			filteredProjects = projects;
+		}
+
+		if (filter.length) {
+			filteredProjects = projects.filter((p) => p.category == filter);
+		}
+	}
 </script>
 
-<Filter {categories} />
-<ProjectsGrid />
+<Filter {categories} on:filterChange={updateFilter} />
+
+<ProjectsGrid {filteredProjects} />

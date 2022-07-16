@@ -63,14 +63,14 @@
 		border-bottom: 1px solid #000000;
 		margin-left: 5%;
 		margin-right: 5%;
-		margin-bottom: 50px;
+		// margin-bottom: 50px;
 
 		@media (max-width: 768px) {
 			height: 80px;
 			margin-top: 10px;
 			margin-left: 0;
 			margin-right: 0;
-			margin-bottom: 30px;
+			// margin-bottom: 30px;
 		}
 
 		nav {
