@@ -1,6 +1,5 @@
 <script context="module">
-	import '../styles/reset.scss';
-	import '../styles/style.scss';
+	import '../styles/index.scss';
 
 	export async function load({ params, fetch, session, stuff }) {
 		const url = `/api/preferences`;

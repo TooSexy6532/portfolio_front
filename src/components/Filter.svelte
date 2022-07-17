@@ -62,11 +62,11 @@
 		cursor: pointer;
 		background-color: #f4f4f5;
 		transition: all 0.2s ease-in-out;
-		box-shadow: rgba(17, 17, 26, 0.03) 0px 2px 8px, rgba(17, 17, 26, 0.03) 0px 4px 16px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		white-space: nowrap;
+		@include with-shadow;
 
 		&:hover {
 			font-weight: 600;
